@@ -1,0 +1,20 @@
+<ion-header no-border [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>
+      Noticias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" [fullscreen]="true">
+  <!-- Llamamos al componente de noticias en la vista por último-->
+  <app-noticias [noticias]="noticias"></app-noticias>
+
+  <ion-infinite-scroll threshold="150px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+      loadingText="Cargando noticias...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!--<app-explore-container name="Tab 1 page"></app-explore-container>-->
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-heade no-border [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>
+      Favoritos
+    </ion-title>
+  </ion-toolbar>
+</ion-heade>
+
+<ion-content color="dark" [fullscreen]="true">
+  <!-- Para cuando no tengamos noticias favoritas (dando estilo) -->
+  <ion-slides [options]="sliderOpts"
+    *ngIf="datalocalService.noticias.length === 0">
+    <ion-slide>
+      <ion-label>No hay noticias que mostrar</ion-label>
+    </ion-slide>
+  </ion-slides>
+  
+  <!-- Sin estilos a aplicar -->
+  <!--<div *ngIf="datalocalService.noticias.length === 0">
+    No hay noticias que mostrar
+  </div>-->
+
+  <!-- Llamamos al componente de noticias -->
+  <app-noticias [enFavoritos]="true"
+    [noticias]="dataLocalService.noticias"></app-noticias>
+  <!--<app-explore-container name="Tab 3 page"></app-explore-container>-->
+</ion-content>
